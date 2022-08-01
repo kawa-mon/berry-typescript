@@ -1,11 +1,16 @@
+let result = ''
+
 for (let i = 1; i <= 100; i++) {
   if (i % 15 === 0) {
-    console.log('FizzBuzz')
+    result += ' FizzBuzz'
   } else if (i % 5 === 0) {
-    console.log('Buzz')
+    result += ' Buzz'
   } else if (i % 3 === 0) {
-    console.log('Fizz')
+    result += ' Fizz'
   } else {
-    console.log(i)
+    result += ' '
+    result += i
   }
 }
+
+console.log(result)
