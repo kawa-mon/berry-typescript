@@ -10,14 +10,15 @@ John Smith,17,0
 Mary Sue,14,1
 `
 
-const users: User[] = []
-const lines = data.trim().split('\n')
-for (const line of lines) {
-  const [name, ageString, premiumUserString] = line.split(',')
-  const age = Number(ageString)
-  const premiumUser = premiumUserString === '1'
-  users.push({ name, age, premiumUser })
-}
+const users: User[] = data
+  .trim()
+  .split('\n')
+  .map((line) => {
+    const [name, ageString, premiumUserString] = line.split(',')
+    const age = Number(ageString)
+    const premiumUser = premiumUserString === '1'
+    return { name, age, premiumUser }
+  })
 
 for (const user of users) {
   if (user.premiumUser) {
