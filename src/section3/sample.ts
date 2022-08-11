@@ -1,3 +1,5 @@
+export {}
+
 // typeof
 const obj = { foo: 123, bar: 'hi' }
 
