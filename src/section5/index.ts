@@ -20,3 +20,13 @@ class User {
 
 const uhyo = new User('uhyo', 26)
 console.log(uhyo.getMessage('こんにちは'))
+
+// 力試し2
+const createUser = (name: string, age: number) => {
+  return (message: string) => {
+    return `${name} (${age}) 「${message}」`
+  }
+}
+
+const getMessage = createUser('uhyo', 26)
+console.log(getMessage('こんにちは'))
