@@ -1,17 +1,16 @@
 export {}
 
-// 力試し1
-type Option<T> =
-  | {
-      tag: 'some'
-      value: T
-    }
-  | {
-      tag: 'none'
-    }
+// 力試し2
+type hasValue<T> = { tag: 'some'; value: T }
+type notHaveValue = { tag: 'none' }
+type Option<T> = hasValue<T> | notHaveValue
+
+function isSome<T>(obj: Option<T>): obj is hasValue<T> {
+  return obj.tag === 'some'
+}
 
 function showNumberIfExist(obj: Option<number>): void {
-  if (obj.tag === 'some') {
+  if (isSome(obj)) {
     console.log(obj.value)
   }
 }
